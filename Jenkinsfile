@@ -5,7 +5,9 @@ pipeline {
         stage('config') {
             steps {
                 sh 'gcloud config list'
-                
+                sh 'gcloud config set project midevops'
+                sh  'gcloud config set account jenkins-317@midevops.iam.gserviceaccount.com'
+                 sh 'gcloud config list'
             }
         }
         

@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('config') {
+            steps {
+                sh 'gcloud config list'
+                
+            }
+        }
+        
+        stage('Deploy ENV') {
+            steps {
+                sh 'gcloud compute instances $ACTION $Instance --zone us-central1-c --quiet'
+            }
+        }
+        
+       
+    }
+}

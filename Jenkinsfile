@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'gcloud config list'
                 sh 'gcloud config set project midevops'
-                sh  'gcloud config set account jenkins-317@midevops.iam.gserviceaccount.com'
+                sh  'gcloud config set account terraform@midevops.iam.gserviceaccount.com'
                  sh 'gcloud config list'
             }
         }

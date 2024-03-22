@@ -2,21 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('config') {
+        stage('Set Project') {
             steps {
-                sh 'gcloud config list'
-                sh 'gcloud config set project midevops'
-                sh  'gcloud config set account terraform@midevops.iam.gserviceaccount.com'
-                 sh 'gcloud config list'
+               sh 'gcloud config set project vamsi-cloud'
             }
         }
-        
-        stage('Deploy ENV') {
+           stage('set Account') {
             steps {
-                sh 'gcloud compute instances $ACTION $Instance --zone us-central1-c --quiet'
+               sh 'gcloud config set account 666366464789-compute@developer.gserviceaccount.com'
             }
         }
-        
-       
+        stage('set zone') {
+            steps {
+               sh 'gcloud config set compute/zone asia-east1-a'
+            }
+        }
+        stage('create a VM') {
+            steps {
+               sh 'gcloud compute instances delete jenkins-created-vm'
+            }
+        }
     }
 }

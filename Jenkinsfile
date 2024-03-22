@@ -25,7 +25,7 @@ pipeline {
 
          stage('delete a VM') {
             steps {
-                sh sleep 500
+               sh 'sleep 500'
                sh 'gcloud compute instances delete jenkins-created-vm --quiet'
             }
         }
